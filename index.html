@@ -28,7 +28,7 @@ div.c {
 <div class="c">
 <h2>TRACKER:</h2>
 </div>
-(refresh to update, still working on live updates)
+As of: <div id="txt"></div>
 <div class="b">
 <h2>IS THE UNITED KINGDOM STILL IN THE EUROPEAN UNION? </h2>
 </div>
@@ -36,22 +36,28 @@ div.c {
 <div class="a">
 <p id="demo"></p>
 </div>
-
+<body onload="startTime()">
 
 <script>
-var d = new Date();
-var bd = new Date(2020, 0, 31, 11, 0, 0, 0);
+function startTime() {
+  var d = new Date();
+  document.getElementById('txt').innerHTML = d;
+  
+  var bd = new Date(2020, 0, 31, 23, 0, 0, 0);
 
-document.getElementById("demo").innerHTML = bd;
-document.getElementById("demo").innerHTML = d;
+  document.getElementById("demo").innerHTML = bd;
+  document.getElementById("demo").innerHTML = d;
 
 
-if (new Date(bd) > new Date(d)){
-  	document.getElementById("demo").innerHTML = "YES";
-    }
-else{
-  	document.getElementById("demo").innerHTML = "NO";
-    }
+  if (new Date(bd) > new Date(d)){
+      document.getElementById("demo").innerHTML = "YES";
+      }
+  else{
+      document.getElementById("demo").innerHTML = "NO";
+      }
+
+    var t = setTimeout(startTime, 500);
+}
 </script>
 
 </body>
